@@ -162,7 +162,7 @@ Cofoundry.visualEditor = (function () {
 
                         // If name is null then discard as its an empty placeholder module
                         if (!el_data.name) {
-                            return;
+                            continue;
                         }
 
                         // Check to see if the section allows for multiple modules

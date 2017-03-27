@@ -253,7 +253,7 @@ Cofoundry.visualEditor = (function () {
 
             function createAddModuleIcon(data) {
                 var ui_wrap_add_module = toolbar_add_module.cloneNode(true);
-                if (!data.isModule && !data.hasChildren) {
+                if (!data.isModule && !data.hasContent) {
                     ui_wrap_add_module.className += ' cofoundry-sv__btn-add-module--empty';
                     ui_wrap_add_module.style.top = data.y + (data.height/2) + 'px';
                 } else {

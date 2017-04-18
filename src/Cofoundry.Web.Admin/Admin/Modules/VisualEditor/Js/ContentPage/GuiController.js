@@ -322,7 +322,8 @@ Cofoundry.visualEditor = (function () {
                     permittedModuleTypes: data.permittedModuleTypes,
                     versionModuleId: data.versionModuleId,
                     pageModuleTypeId: data.pageModuleTypeId,
-                    isCustomEntity: _internal.model.isCustomEntityRoute
+                    isCustomEntity: _internal.model.isCustomEntityRoute,
+                    versionId: _internal.model.isCustomEntityRoute ? _internal.model.page.customEntity.customEntityVersionId : _internal.model.page.page.pageVersionId
                 });
             }
 
@@ -357,7 +358,8 @@ Cofoundry.visualEditor = (function () {
                     permittedModuleTypes: scope.permittedModuleTypes,
                     versionModuleId: scope.versionModuleId,
                     pageModuleTypeId: scope.pageModuleTypeId,
-                    isCustomEntity: _internal.model.isCustomEntityRoute
+                    isCustomEntity: _internal.model.isCustomEntityRoute,
+                    versionId: _internal.model.isCustomEntityRoute ? _internal.model.page.customEntity.customEntityVersionId : _internal.model.page.page.pageVersionId
                 });
             }
 
@@ -368,7 +370,8 @@ Cofoundry.visualEditor = (function () {
                     permittedModuleTypes: scope.permittedModuleTypes,
                     versionModuleId: scope.versionModuleId,
                     pageModuleTypeId: scope.pageModuleTypeId,
-                    isCustomEntity: _internal.model.isCustomEntityRoute
+                    isCustomEntity: _internal.model.isCustomEntityRoute,
+                    versionId: _internal.model.isCustomEntityRoute ? _internal.model.page.customEntity.customEntityVersionId : _internal.model.page.page.pageVersionId
                 });
             }
 
@@ -379,7 +382,8 @@ Cofoundry.visualEditor = (function () {
                     permittedModuleTypes: scope.permittedModuleTypes,
                     versionModuleId: scope.versionModuleId,
                     pageModuleTypeId: scope.pageModuleTypeId,
-                    isCustomEntity: _internal.model.isCustomEntityRoute
+                    isCustomEntity: _internal.model.isCustomEntityRoute,
+                    versionId: _internal.model.isCustomEntityRoute ? _internal.model.page.customEntity.customEntityVersionId : _internal.model.page.page.pageVersionId
                 });
             }
 
@@ -557,8 +561,8 @@ Cofoundry.visualEditor = (function () {
             e.preventDefault();
             __IFRAME.contentWindow.postMessage({
                 action: 'copyToDraft', args: [{
-                    entityId: _internal.model.page.page.pageId,
-                    versionId: _internal.model.page.page.versionId,
+                    entityId: _internal.model.isCustomEntityRoute ? _internal.model.page.customEntity.customEntityId : _internal.model.page.page.pageId,
+                    versionId: _internal.model.isCustomEntityRoute ? _internal.model.page.customEntity.customEntityVersionId : _internal.model.page.page.pageVersionId,
                     hasDraftVersion: false
                 }]
             }, document.location.origin);

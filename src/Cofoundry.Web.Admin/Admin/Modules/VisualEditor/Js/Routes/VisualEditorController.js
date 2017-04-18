@@ -6,9 +6,10 @@
     'shared.entityVersionModalDialogService',
     'shared.modalDialogService',
     'shared.localStorage',
-    'visualEditor.pageModuleService',
-    'visualEditor.modulePath',
+    'shared.pageModuleService',
     'shared.urlLibrary',
+    'shared.internalModulePath',
+    'visualEditor.modulePath',
     'visualEditor.options',
 function (
     $window,
@@ -19,8 +20,9 @@ function (
     modalDialogService,
     localStorageService,
     pageModuleService,
-    modulePath,
     urlLibrary,
+    sharedModulePath,
+    modulePath,
     options
     ) {
 
@@ -92,9 +94,10 @@ function (
 
     function addSectionModule(args) {
         modalDialogService.show({
-            templateUrl: modulePath + 'routes/modals/addmodule.html',
+            templateUrl: sharedModulePath + 'uicomponents/moduledialogs/addmodule.html',
             controller: 'AddModuleController',
             options: {
+                versionId: args.versionId,
                 insertMode: args.insertMode,
                 pageTemplateSectionId: args.pageTemplateSectionId,
                 adjacentVersionModuleId: args.versionModuleId,
@@ -111,14 +114,14 @@ function (
     }
 
     function addModule(args) {
-
         if (globalLoadState.isLoading) return;
         globalLoadState.on();
 
         modalDialogService.show({
-            templateUrl: modulePath + 'routes/modals/addmodule.html',
+            templateUrl: sharedModulePath + 'uicomponents/moduledialogs/addmodule.html',
             controller: 'AddModuleController',
             options: {
+                versionId: args.versionId,
                 pageTemplateSectionId: args.pageTemplateSectionId,
                 adjacentVersionModuleId: args.versionModuleId,
                 permittedModuleTypes: args.permittedModuleTypes,
@@ -140,7 +143,7 @@ function (
         globalLoadState.on();
 
         modalDialogService.show({
-            templateUrl: modulePath + 'routes/modals/editmodule.html',
+            templateUrl: sharedModulePath + 'uicomponents/moduledialogs/editmodule.html',
             controller: 'EditModuleController',
             options: {
                 versionModuleId: args.versionModuleId,

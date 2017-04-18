@@ -321,6 +321,7 @@
     <Content Include="Admin\Modules\Images\Js\Routes\ImageList.html" />
     <Content Include="Admin\Modules\Images\Js\Routes\ImageListController.js" />
     <Content Include="Admin\Modules\Shared\Js\DataServices\DirectoryService.js" />
+    <Content Include="Admin\Modules\Shared\Js\DataServices\PageModuleService.js" />
     <Content Include="Admin\Modules\Shared\Js\UIComponents\CustomEntities\AddCustomEntityDialog.html" />
     <Content Include="Admin\Modules\Shared\Js\UIComponents\CustomEntities\AddCustomEntityDialog.js" />
     <Content Include="Admin\Modules\Shared\Js\UIComponents\Form\FormSectionActions.js" />
@@ -433,6 +434,10 @@
     <Content Include="Admin\Modules\Shared\Content\css\shared.css" />
     <Content Include="Admin\Modules\Shared\Js\UIComponents\ImageAssets\UploadImageAssetDialog.js" />
     <Content Include="Admin\Modules\Shared\Js\UIComponents\ImageAssets\UploadImageAssetDialog.html" />
+    <Content Include="Admin\Modules\Shared\Js\UIComponents\ModuleDialogs\AddModule.html" />
+    <Content Include="Admin\Modules\Shared\Js\UIComponents\ModuleDialogs\AddModuleController.js" />
+    <Content Include="Admin\Modules\Shared\Js\UIComponents\ModuleDialogs\EditModule.html" />
+    <Content Include="Admin\Modules\Shared\Js\UIComponents\ModuleDialogs\EditModuleController.js" />
     <Content Include="Admin\Modules\Shared\Js\UIComponents\Pages\PagePickerDialog.html" />
     <Content Include="Admin\Modules\Shared\Js\UIComponents\Pages\PagePickerDialog.js" />
     <Content Include="Admin\Modules\Shared\Js\UIComponents\Pages\FormFieldPageCollection.html" />
@@ -668,11 +673,6 @@
     <Content Include="Admin\Modules\VisualEditor\Js\ContentPage\Index.js" />
     <Content Include="Admin\Modules\VisualEditor\Js\ContentPage\GuiController.js" />
     <Content Include="Admin\Modules\VisualEditor\Js\ContentPage\EventAggregator.js" />
-    <Content Include="Admin\Modules\VisualEditor\Js\DataServices\PageModuleService.js" />
-    <Content Include="Admin\Modules\VisualEditor\Js\Routes\Modals\AddModule.html" />
-    <Content Include="Admin\Modules\VisualEditor\Js\Routes\Modals\AddModuleController.js" />
-    <Content Include="Admin\Modules\VisualEditor\Js\Routes\Modals\EditModule.html" />
-    <Content Include="Admin\Modules\VisualEditor\Js\Routes\Modals\EditModuleController.js" />
     <Content Include="Admin\Modules\VisualEditor\Js\Routes\VisualEditorController.js" />
     <Content Include="Admin\Modules\VisualEditor\Js\UIComponents\PageSection.html" />
     <Content Include="Admin\Modules\VisualEditor\Js\UIComponents\PageSection.js" />

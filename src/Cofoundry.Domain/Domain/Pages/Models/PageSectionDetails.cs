@@ -17,6 +17,8 @@ namespace Cofoundry.Domain
 
         public string Name { get; set; }
 
+        public string PermittedModuleTypes { get; set; }
+
         public PageVersionModuleDetails[] Modules { get; set; }
     }
 }

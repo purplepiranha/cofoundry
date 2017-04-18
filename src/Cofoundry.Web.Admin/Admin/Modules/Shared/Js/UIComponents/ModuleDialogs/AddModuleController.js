@@ -1,10 +1,9 @@
-﻿angular.module('cms.visualEditor').controller('AddModuleController', [
+﻿angular.module('cms.shared').controller('AddModuleController', [
     '$scope',
     '$q',
     '_',
     'shared.LoadState',
-    'visualEditor.pageModuleService',
-    'visualEditor.options',
+    'shared.pageModuleService',
     'options',
     'close',
 function (
@@ -13,7 +12,6 @@ function (
     _,
     LoadState,
     pageModuleService,
-    visualEditorOptions,
     options,
     close) {
 
@@ -27,7 +25,7 @@ function (
         $scope.command = { 
             dataModel: {},
             pageTemplateSectionId: options.pageTemplateSectionId,
-            pageVersionId: visualEditorOptions.pageVerisonId,
+            versionId: options.versionId,
             adjacentVersionModuleId: options.adjacentVersionModuleId,
             insertMode: options.insertMode || 'Last'
         };
@@ -92,7 +90,9 @@ function (
 
     function onClose() {
         close();
-        options.onClose();
+        if (options.onClose) {
+            options.onClose();
+        }
     }
 
     function setStep(step) {

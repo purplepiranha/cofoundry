@@ -2,10 +2,9 @@
  * Service for managing page modules, which can either be attached to a page or a custom entity. 
  * Pass in the isCustomEntityRoute to switch between either route endpoint.
  */
-angular.module('cms.visualEditor').factory('visualEditor.pageModuleService', [
+angular.module('cms.shared').factory('shared.pageModuleService', [
     '$http',
     'shared.serviceBase',
-    'visualEditor.options',
 function (
     $http,
     serviceBase,
@@ -37,7 +36,7 @@ function (
 
     service.add = function (isCustomEntityRoute, command) {
         var entityName = isCustomEntityRoute ? 'customEntity' : 'page';
-        command[entityName + 'VersionId'] = options.versionId;
+        command[entityName + 'VersionId'] = command.versionId;
 
         return $http.post(getServiceBase(isCustomEntityRoute), command);
     }

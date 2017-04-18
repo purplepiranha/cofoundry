@@ -127,7 +127,7 @@
         </cms-form-section>
 
 
-        <cms-form-section cms-title="Template Content">
+        <cms-form-section cms-title="Template modules">
 
             <cms-form-section-actions>
                 <cms-button-link cms-text="Manage in Visual Editor"
@@ -140,35 +140,44 @@
                 <p>This template has no managed content</p>
             </div>
 
-            <div class="form-section-message" ng-if="vm.page.latestVersion.sections.length > 0 && vm.editMode">
-                <p>Page content is edited in the visual editor.</p>
-            </div>
-
             <cms-form-field-container>
                 <cms-table-container ng-if="vm.page.latestVersion.sections.length > 0">
 
                     <table>
                         <tbody ng-repeat="section in vm.page.latestVersion.sections">
-                            <tr>
+                            <tr style="background:#ebebeb">
                                 <th colspan="2">
                                     <cms-table-group-heading>Section: {{section.name}}</cms-table-group-heading>
                                 </th>
+                                <th style="width:30px;text-align: right;">
+                                    <a href="" class="btn-icon" title="Add module"
+                                       cms-icon="plus-circle"
+                                       ng-if="vm.editMode"
+                                       ng-click="vm.addModule(section)">
+                                        <i class="fa fa-plus-circle"></i>
+                                    </a>
+                                </th>
                             </tr>
                             <tr ng-if="!section.modules.length">
-                                <td colspan="2">No content</td>
+                                <td colspan="3">No content</td>
                             </tr>
                             <tr ng-repeat="module in section.modules">
                                 <td>{{module.moduleType.name}}</td>
-                                <!--<td>{{module.moduleType.description}}</td>-->
-                                <td class="row-type" style="width:30px; text-align:center;">
-                                    <!--TODO: Action-->
+                                <td valign="top">{{module.moduleType.description}}</td>
+                                <td class="row-type" style="width:100px; text-align:right;">
+                                    <a href="" ng-if="vm.editMode" ng-click="vm.editModule(module)" class="btn-icon" title="Edit">
+                                        <i class="fa fa-pencil-square-o"></i>
+                                    </a>
+                                    <a href="" ng-if="vm.editMode" ng-click="vm.deleteModule(module)" class="btn-icon" title="Edit">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </cms-table-container>
-        </cms-form-field-container>
-</cms-form-section>
+            </cms-form-field-container>
+        </cms-form-section>
 
         <!-- Page versions -->
         <cms-form-section cms-title="Versions">

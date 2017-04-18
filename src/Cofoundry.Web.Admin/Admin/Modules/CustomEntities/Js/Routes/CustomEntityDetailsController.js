@@ -8,6 +8,8 @@
     'shared.entityVersionModalDialogService',
     'shared.customEntityService',
     'shared.urlLibrary',
+    'shared.pageModuleService',
+    'shared.internalModulePath',
     'customEntities.modulePath',
     'customEntities.options',
 function (
@@ -20,6 +22,8 @@ function (
     entityVersionModalDialogService,
     customEntityService,
     urlLibrary,
+    pageModuleService,
+    sharedModulePath,
     modulePath,
     moduleOptions
     ) {
@@ -49,6 +53,9 @@ function (
         vm.copyToDraft = copyToDraft;
         vm.deleteCustomEntity = deleteCustomEntity;
         vm.changeUrl = changeUrl;
+        vm.addModule = addModule;
+        vm.editModule = editModule;
+        vm.deleteModule = deleteModule;
 
         // Properties
         vm.editMode = false;
@@ -175,7 +182,55 @@ function (
         });
     }
 
+    function addModule(args) {
+        modalDialogService.show({
+            templateUrl: sharedModulePath + 'uicomponents/moduledialogs/addmodule.html',
+            controller: 'AddModuleController',
+            options: {
+                insertMode: 'Last',
+                versionId: vm.customEntity.latestVersion.customEntityVersionId,
+                pageTemplateSectionId: args.pageTemplateSectionId,
+                permittedModuleTypes: args.permittedModuleTypes || [],
+                refreshContent: refreshSection,
+                isCustomEntity: true,
+            }
+        });
+    }
+
+    function editModule(args) {
+        modalDialogService.show({
+            templateUrl: sharedModulePath + 'uicomponents/moduledialogs/editmodule.html',
+            controller: 'EditModuleController',
+            options: {
+                versionModuleId: args.customEntityVersionPageModuleId,
+                pageModuleTypeId: args.moduleType.pageModuleTypeId,
+                isCustomEntity: true
+            }
+        });
+    }
+
+    function deleteModule(args) {
+        var options = {
+                title: 'Delete Module',
+                message: 'Are you sure you want to delete this module?',
+                okButtonTitle: 'Yes, delete it',
+                onOk: onOk
+            };
+
+        modalDialogService.confirm(options);
+
+        function onOk() {
+            return pageModuleService
+                .remove(true, args.customEntityVersionPageModuleId)
+                .finally(refreshSection);
+        }
+    }
+
     /* PRIVATE FUNCS */
+
+    function refreshSection() {
+        initData(vm.formLoadState, true);
+    }
 
     function onSuccess(message, loadStateToTurnOff) {
         return initData(loadStateToTurnOff)
@@ -188,7 +243,7 @@ function (
         });
     }
 
-    function initData(loadStateToTurnOff) {
+    function initData(loadStateToTurnOff, initInEditMode) {
 
         return $q
             .all([getCustomEntity(), getVersions(), getMetaData()])
@@ -215,7 +270,7 @@ function (
                 vm.additionalParameters = {};
             }
 
-            vm.editMode = false;
+            vm.editMode = initInEditMode;
         }
 
         function getMetaData() {

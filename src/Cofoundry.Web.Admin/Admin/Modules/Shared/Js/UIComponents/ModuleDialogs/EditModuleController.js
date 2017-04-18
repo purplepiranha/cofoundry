@@ -1,10 +1,9 @@
-﻿angular.module('cms.visualEditor').controller('EditModuleController', [
+﻿angular.module('cms.shared').controller('EditModuleController', [
     '$scope',
     '$q',
     '_',
     'shared.LoadState',
-    'visualEditor.pageModuleService',
-    'visualEditor.options',
+    'shared.pageModuleService',
     'options',
     'close',
 function (
@@ -13,7 +12,6 @@ function (
     _,
     LoadState,
     pageModuleService,
-    visualEditorOptions,
     options,
     close) {
 
@@ -85,7 +83,9 @@ function (
 
     function onClose() {
         close();
-        options.onClose();
+        if (options.onClose) {
+            options.onClose();
+        }
     }
     
 }]);

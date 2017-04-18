@@ -1,7 +1,7 @@
 ﻿angular.module('cms.visualEditor').directive('cmsPageSectionModule', [
     '$window',
     '$timeout',
-    'visualEditor.pageModuleService',
+    'shared.pageModuleService',
     'shared.modalDialogService',
     'shared.LoadState',
     'visualEditor.modulePath',

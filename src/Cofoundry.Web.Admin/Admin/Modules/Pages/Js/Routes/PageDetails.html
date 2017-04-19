@@ -127,7 +127,7 @@
         </cms-form-section>
 
 
-        <cms-form-section cms-title="Template modules">
+        <cms-form-section cms-title="Modules">
 
             <cms-form-section-actions>
                 <cms-button-link cms-text="Manage in Visual Editor"
@@ -137,19 +137,17 @@
             </cms-form-section-actions>
 
             <div class="form-section-message" ng-if="!vm.page.latestVersion.sections.length">
-                <p>This template has no managed content</p>
+                <p>This page has no managed content</p>
             </div>
 
             <cms-form-field-container>
-                <cms-table-container ng-if="vm.page.latestVersion.sections.length > 0">
+                <cms-table-container ng-if="vm.page.latestVersion.sections.length > 0" ng-repeat="section in vm.page.latestVersion.sections">
 
-                    <table>
-                        <tbody ng-repeat="section in vm.page.latestVersion.sections">
-                            <tr style="background:#ebebeb">
-                                <th colspan="2">
-                                    <cms-table-group-heading>Section: {{section.name}}</cms-table-group-heading>
-                                </th>
-                                <th style="width:30px;text-align: right;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Section: {{section.name}}</th>
+                                <th style="width:30px;text-align: right; padding: 0;">
                                     <a href="" class="btn-icon" title="Add module"
                                        cms-icon="plus-circle"
                                        ng-if="vm.editMode"
@@ -158,13 +156,20 @@
                                     </a>
                                 </th>
                             </tr>
+                        </thead>
+                        <tbody>
                             <tr ng-if="!section.modules.length">
                                 <td colspan="3">No content</td>
                             </tr>
-                            <tr ng-repeat="module in section.modules">
+                            <tr ng-repeat="module in section.modules"
+                                ui-draggable="vm.editMode && section.modules.length > 1"
+                                data-drag="entity"
+                                data-drag-channel="page-modules-{{section.name}}"
+                                ui-on-drop="vm.onDrop($index, $data)"
+                                data-drop-channel="page-modules-{{section.name}}">
                                 <td>{{module.moduleType.name}}</td>
                                 <td valign="top">{{module.moduleType.description}}</td>
-                                <td class="row-type" style="width:100px; text-align:right;">
+                                <td class="row-type" style="width:100px; text-align:right; padding: 0;">
                                     <a href="" ng-if="vm.editMode" ng-click="vm.editModule(module)" class="btn-icon" title="Edit">
                                         <i class="fa fa-pencil-square-o"></i>
                                     </a>

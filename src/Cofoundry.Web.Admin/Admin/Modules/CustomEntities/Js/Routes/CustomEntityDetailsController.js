@@ -56,6 +56,7 @@ function (
         vm.addModule = addModule;
         vm.editModule = editModule;
         vm.deleteModule = deleteModule;
+        vm.onDrop = onDrop;
 
         // Properties
         vm.editMode = false;
@@ -224,6 +225,10 @@ function (
                 .remove(true, args.customEntityVersionPageModuleId)
                 .finally(refreshSection);
         }
+    }
+
+    function onDrop(index, data) {
+        alert(index);
     }
 
     /* PRIVATE FUNCS */

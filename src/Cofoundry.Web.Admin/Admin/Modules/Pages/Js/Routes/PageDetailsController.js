@@ -49,6 +49,7 @@ function (
         vm.addModule = addModule;
         vm.editModule = editModule;
         vm.deleteModule = deleteModule;
+        vm.onDrop = onDrop;
 
         // Helper Functions
         vm.getPartialUrl = getPartialUrl;
@@ -235,6 +236,10 @@ function (
                 .remove(false, args.pageVersionModuleId)
                 .finally(refreshSection);
         }
+    }
+
+    function onDrop(index, data) {
+        
     }
 
     /* PRIVATE FUNCS */

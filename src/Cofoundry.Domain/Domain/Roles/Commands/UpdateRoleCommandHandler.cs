@@ -10,10 +10,10 @@ using Cofoundry.Core.Validation;
 using Cofoundry.Core;
 using Cofoundry.Core.Data;
 
-namespace Cofoundry.Domain
+namespace Cofoundry.Domain.Internal
 {
     public class UpdateRoleCommandHandler 
-        : IAsyncCommandHandler<UpdateRoleCommand>
+        : ICommandHandler<UpdateRoleCommand>
         , IPermissionRestrictedCommandHandler<UpdateRoleCommand>
     {
         #region constructor
@@ -72,7 +72,7 @@ namespace Cofoundry.Domain
         {
             if (!isUnique)
             {
-                throw new PropertyValidationException("A role with this title already exists", "Title");
+                throw ValidationErrorException.CreateWithProperties("A role with this title already exists", "Title");
             }
         }
 

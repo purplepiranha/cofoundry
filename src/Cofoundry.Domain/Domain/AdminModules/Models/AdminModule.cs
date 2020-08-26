@@ -17,8 +17,6 @@ namespace Cofoundry.Domain
 
         public string Description { get; set; }
 
-        //public AdminModuleMenuCategory MenuCategory { get; set; }
-
         public abstract Type MenuCategoryType { get; }
 
         /// <summary>

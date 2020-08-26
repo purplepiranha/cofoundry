@@ -28,7 +28,6 @@ namespace Cofoundry.Web.Admin
                 AdminModuleCode = "COFDIR",
                 Title = "Directories",
                 Description = "Manage the directories in your site.",
-                //MenuCategory = AdminModuleMenuCategory.ManageSite,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Secondry,
                 Url = _adminRouteLibrary.Directories.List(),
                 RestrictedToPermission = new PageDirectoryAdminModulePermission()

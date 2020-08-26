@@ -25,7 +25,6 @@ namespace Cofoundry.BasicTestSite
                 AdminModuleCode = "BTPPRD",
                 Title = "Products",
                 Description = "Testing module.",
-                //MenuCategory = AdminModuleMenuCategory.ManageSite,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Tertiary,
                 Url = "/" + _adminSettings.DirectoryName + "/" + RoutePrefix
             };

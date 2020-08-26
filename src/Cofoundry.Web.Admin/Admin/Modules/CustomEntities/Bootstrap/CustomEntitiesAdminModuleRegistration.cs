@@ -29,7 +29,6 @@ namespace Cofoundry.Web.Admin
                 {
                     AdminModuleCode = definition.CustomEntityDefinitionCode,
                     Description = definition.Description,
-                    //MenuCategory = AdminModuleMenuCategory.ManageSite,
                     PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Tertiary,
                     Title = definition.NamePlural,
                     Url = _adminRouteLibrary.CustomEntities.List(definition),

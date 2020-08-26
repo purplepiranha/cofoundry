@@ -28,7 +28,6 @@ namespace Cofoundry.Web.Admin
                 AdminModuleCode = "COFDOC",
                 Title = "Documents",
                 Description = "Manage the documents in your site.",
-                //MenuCategory = AdminModuleMenuCategory.ManageSite,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Secondry,
                 Url = _adminRouteLibrary.Documents.List(),
                 RestrictedToPermission = new DocumentAssetAdminModulePermission()

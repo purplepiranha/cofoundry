@@ -23,7 +23,6 @@ namespace Cofoundry.Web.Admin
                 AdminModuleCode = "COFACC",
                 Title = "My Account",
                 Description = "Manage your user account.",
-                //MenuCategory = AdminModuleMenuCategory.Settings,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Last,
                 Url = _adminRouteLibrary.Account.Details()
             };

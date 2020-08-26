@@ -23,7 +23,6 @@ namespace Cofoundry.Web.Admin
                 AdminModuleCode = "COFSET",
                 Title = "Site Settings",
                 Description = "Manage site settings.",
-                //MenuCategory = AdminModuleMenuCategory.Settings,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Primary,
                 Url = _adminRouteLibrary.Settings.Details(),
                 RestrictedToPermission = new SettingsAdminModulePermission()

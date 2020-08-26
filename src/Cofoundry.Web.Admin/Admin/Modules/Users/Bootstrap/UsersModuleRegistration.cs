@@ -29,7 +29,6 @@ namespace Cofoundry.Web.Admin
                     AdminModuleCode = "COFUSR" + userArea.UserAreaCode,
                     Title = userArea.Name + " Users",
                     Description = "Manage users in the " + userArea.Name + " user area.",
-                    //MenuCategory = AdminModuleMenuCategory.Settings,
                     PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Secondry,
                     Url = _adminRouteLibrary.Users.List(userArea)
                 };

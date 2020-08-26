@@ -24,7 +24,6 @@ namespace Cofoundry.Web.Admin
                 AdminModuleCode = ModuleCode,
                 Title = "Dashboard",
                 Description = "An overview of your site.",
-                //MenuCategory = AdminModuleMenuCategory.ManageSite,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Primary,
                 SecondaryOrdering = Int32.MaxValue,
                 Url = _adminRouteLibrary.Dashboard.Dashboard(),

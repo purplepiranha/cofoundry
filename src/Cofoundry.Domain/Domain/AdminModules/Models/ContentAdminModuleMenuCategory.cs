@@ -6,8 +6,6 @@ namespace Cofoundry.Domain
 {
     public class ContentAdminModuleMenuCategory : IAdminModuleMenuCategory
     {
-        //public string MenuCode => "COFCON";
-
         public string Title => "Content";
 
         public string IconCssClass => "fa fa-pencil";

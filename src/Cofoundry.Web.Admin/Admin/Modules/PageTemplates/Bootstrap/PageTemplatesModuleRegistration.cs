@@ -28,7 +28,6 @@ namespace Cofoundry.Web.Admin
                 AdminModuleCode = "COFPGT",
                 Title = "Page Templates",
                 Description = "Manage templates for content pages.",
-                //MenuCategory = AdminModuleMenuCategory.Settings,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Secondry,
                 Url = _adminRouteLibrary.PageTemplates.List(),
                 RestrictedToPermission = new PageTemplateAdminModulePermission()

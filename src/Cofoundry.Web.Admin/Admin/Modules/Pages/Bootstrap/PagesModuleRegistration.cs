@@ -28,7 +28,6 @@ namespace Cofoundry.Web.Admin
                 AdminModuleCode = "COFPAG",
                 Title = "Pages",
                 Description = "Manage the pages in your site.",
-                //MenuCategory = AdminModuleMenuCategory.ManageSite,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Primary,
                 Url = _adminRouteLibrary.Pages.List(),
                 RestrictedToPermission = new PageAdminModulePermission()

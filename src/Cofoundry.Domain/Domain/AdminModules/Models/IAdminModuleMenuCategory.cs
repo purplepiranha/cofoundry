@@ -6,10 +6,6 @@ namespace Cofoundry.Domain
 {
     public interface IAdminModuleMenuCategory
     {
-        /// <summary>
-        /// Unique 6 letter code representing the menu (use uppercase)
-        /// </summary>
-        //string MenuCode { get; }
 
         /// <summary>
         /// Title of the menu

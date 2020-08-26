@@ -51,6 +51,9 @@ namespace Cofoundry.Domain
         }
     }
 
+    /// <remarks>
+    /// Uniquely identifies the module and stipulates which menu category it should appear in
+    /// </remarks>
     public class AdminModule<T> : AdminModule where T : IAdminModuleMenuCategory
     {
         public override Type MenuCategoryType => typeof(T);

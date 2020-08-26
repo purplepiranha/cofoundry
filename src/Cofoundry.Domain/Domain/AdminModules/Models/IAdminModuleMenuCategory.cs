@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Cofoundry.Domain
 {
+    /// <summary>
+    /// Implement this interface to create new top level admin menu categories
+    /// </summary>
     public interface IAdminModuleMenuCategory
     {
 

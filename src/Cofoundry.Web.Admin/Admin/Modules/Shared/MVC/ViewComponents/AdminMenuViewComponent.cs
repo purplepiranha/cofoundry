@@ -46,7 +46,9 @@ namespace Cofoundry.Web.Admin
                     .SetStandardOrdering()
                     .ToList();
 
-                categories.Add(cvm);
+                // only add the category if there are items to display
+                if (cvm.Modules.Count() > 0)
+                    categories.Add(cvm);
             }
 
             vm.Categories = categories;

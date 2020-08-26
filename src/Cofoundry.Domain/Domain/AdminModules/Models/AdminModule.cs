@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cofoundry.Domain
 {
-    public class AdminModule
+    public abstract class AdminModule 
     {
         /// <remarks>
         /// Uniquely identifies the module
@@ -17,7 +17,9 @@ namespace Cofoundry.Domain
 
         public string Description { get; set; }
 
-        public AdminModuleMenuCategory MenuCategory { get; set; }
+        //public AdminModuleMenuCategory MenuCategory { get; set; }
+
+        public abstract Type MenuCategoryType { get; }
 
         /// <summary>
         /// A primary ordering that is used to partition
@@ -49,5 +51,10 @@ namespace Cofoundry.Domain
 
             return null;
         }
+    }
+
+    public class AdminModule<T> : AdminModule where T : IAdminModuleMenuCategory
+    {
+        public override Type MenuCategoryType => typeof(T);
     }
 }

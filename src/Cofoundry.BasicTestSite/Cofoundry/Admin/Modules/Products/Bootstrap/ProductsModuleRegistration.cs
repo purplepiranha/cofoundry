@@ -20,12 +20,12 @@ namespace Cofoundry.BasicTestSite
 
         public AdminModule GetModule()
         {
-            var module = new AdminModule()
+            var module = new AdminModule<ShopAdminModuleMenuCategory>()
             {
                 AdminModuleCode = "BTPPRD",
                 Title = "Products",
                 Description = "Testing module.",
-                MenuCategory = AdminModuleMenuCategory.ManageSite,
+                //MenuCategory = AdminModuleMenuCategory.ManageSite,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Tertiary,
                 Url = "/" + _adminSettings.DirectoryName + "/" + RoutePrefix
             };

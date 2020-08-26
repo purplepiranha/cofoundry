@@ -23,12 +23,12 @@ namespace Cofoundry.Web.Admin
         {
             if (_imageAssetsSettings.Disabled) return null;
 
-            var module = new AdminModule()
+            var module = new AdminModule<ContentAdminModuleMenuCategory>()
             {
                 AdminModuleCode = "COFIMG",
                 Title = "Images",
                 Description = "Manage the images in your site.",
-                MenuCategory = AdminModuleMenuCategory.ManageSite,
+                //MenuCategory = AdminModuleMenuCategory.ManageSite,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Secondry,
                 Url = _adminRouteLibrary.Images.List(),
                 RestrictedToPermission = new ImageAssetAdminModulePermission()

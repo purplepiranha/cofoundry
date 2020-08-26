@@ -18,12 +18,12 @@ namespace Cofoundry.Web.Admin
 
         public AdminModule GetModule()
         {
-            var module = new AdminModule()
+            var module = new AdminModule<SettingsAdminModuleMenuCategory>()
             {
                 AdminModuleCode = "COFSET",
                 Title = "Site Settings",
                 Description = "Manage site settings.",
-                MenuCategory = AdminModuleMenuCategory.Settings,
+                //MenuCategory = AdminModuleMenuCategory.Settings,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Primary,
                 Url = _adminRouteLibrary.Settings.Details(),
                 RestrictedToPermission = new SettingsAdminModulePermission()

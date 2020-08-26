@@ -18,12 +18,12 @@ namespace Cofoundry.Web.Admin
 
         public AdminModule GetModule()
         {
-            var module = new AdminModule()
+            var module = new AdminModule<SettingsAdminModuleMenuCategory>()
             {
                 AdminModuleCode = "COFACC",
                 Title = "My Account",
                 Description = "Manage your user account.",
-                MenuCategory = AdminModuleMenuCategory.Settings,
+                //MenuCategory = AdminModuleMenuCategory.Settings,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Last,
                 Url = _adminRouteLibrary.Account.Details()
             };

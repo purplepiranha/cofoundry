@@ -23,12 +23,12 @@ namespace Cofoundry.Web.Admin
         {
             if (_pagesSettings.Disabled) return null;
 
-            var module = new AdminModule()
+            var module = new AdminModule<SettingsAdminModuleMenuCategory>()
             {
                 AdminModuleCode = "COFPGT",
                 Title = "Page Templates",
                 Description = "Manage templates for content pages.",
-                MenuCategory = AdminModuleMenuCategory.Settings,
+                //MenuCategory = AdminModuleMenuCategory.Settings,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Secondry,
                 Url = _adminRouteLibrary.PageTemplates.List(),
                 RestrictedToPermission = new PageTemplateAdminModulePermission()

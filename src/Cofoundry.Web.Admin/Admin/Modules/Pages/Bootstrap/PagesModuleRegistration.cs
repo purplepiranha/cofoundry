@@ -23,12 +23,12 @@ namespace Cofoundry.Web.Admin
         {
             if (_pagesSettings.Disabled) return null;
 
-            var module = new AdminModule()
+            var module = new AdminModule<ContentAdminModuleMenuCategory>()
             {
                 AdminModuleCode = "COFPAG",
                 Title = "Pages",
                 Description = "Manage the pages in your site.",
-                MenuCategory = AdminModuleMenuCategory.ManageSite,
+                //MenuCategory = AdminModuleMenuCategory.ManageSite,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Primary,
                 Url = _adminRouteLibrary.Pages.List(),
                 RestrictedToPermission = new PageAdminModulePermission()

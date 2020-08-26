@@ -18,12 +18,12 @@ namespace Cofoundry.Web.Admin
 
         public AdminModule GetModule()
         {
-            var module = new AdminModule()
+            var module = new AdminModule<SettingsAdminModuleMenuCategory>()
             {
                 AdminModuleCode = "COFROL",
                 Title = "Roles & Permissions",
                 Description = "Manage user roles and permissions.",
-                MenuCategory = AdminModuleMenuCategory.Settings,
+                //MenuCategory = AdminModuleMenuCategory.Settings,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Secondry,
                 Url = _adminRouteLibrary.Roles.List(),
                 RestrictedToPermission = new RoleAdminModulePermission()

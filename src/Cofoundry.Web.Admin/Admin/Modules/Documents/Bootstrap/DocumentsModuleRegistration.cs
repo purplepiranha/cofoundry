@@ -23,12 +23,12 @@ namespace Cofoundry.Web.Admin
         {
             if (_documentAssetsSettings.Disabled) return null;
 
-            var module = new AdminModule()
+            var module = new AdminModule<ContentAdminModuleMenuCategory>()
             {
                 AdminModuleCode = "COFDOC",
                 Title = "Documents",
                 Description = "Manage the documents in your site.",
-                MenuCategory = AdminModuleMenuCategory.ManageSite,
+                //MenuCategory = AdminModuleMenuCategory.ManageSite,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Secondry,
                 Url = _adminRouteLibrary.Documents.List(),
                 RestrictedToPermission = new DocumentAssetAdminModulePermission()

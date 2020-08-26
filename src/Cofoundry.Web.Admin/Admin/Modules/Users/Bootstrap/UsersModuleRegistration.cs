@@ -24,12 +24,12 @@ namespace Cofoundry.Web.Admin
         {
             foreach (var userArea in _userAreaDefinitionRepository.GetAll())
             {
-                var module = new AdminModule()
+                var module = new AdminModule<SettingsAdminModuleMenuCategory>()
                 {
                     AdminModuleCode = "COFUSR" + userArea.UserAreaCode,
                     Title = userArea.Name + " Users",
                     Description = "Manage users in the " + userArea.Name + " user area.",
-                    MenuCategory = AdminModuleMenuCategory.Settings,
+                    //MenuCategory = AdminModuleMenuCategory.Settings,
                     PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Secondry,
                     Url = _adminRouteLibrary.Users.List(userArea)
                 };

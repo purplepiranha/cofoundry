@@ -7,7 +7,7 @@
 }
 @functions
 {
-    IHtmlContent ActiveIfCategory(AdminModuleMenuCategory category, string additionalCls = null)
+    IHtmlContent ActiveIfCategory(IAdminModuleMenuCategory category, string additionalCls = null)
     {
         return Cofoundry.Html.TextIf(Model.SelectedCategory == category, "selected");
     }
@@ -21,32 +21,14 @@
 <nav class="main-nav fix">
     <a href="/" class="home"><i></i></a>
     <ol class="no-js categories">
-        @if (Model.ManageSiteModules.Any())
+        @foreach (var category in Model.Categories)
         {
-            <li class="category manage @ActiveIfCategory(AdminModuleMenuCategory.ManageSite)">
-                <a href="@Model.ManageSiteModules.First().Url" class="main-button @ActiveIfCategory(AdminModuleMenuCategory.ManageSite)"><i class="fa fa-pencil"></i> Content</a>
+            <li class="category manage @ActiveIfCategory(category.Category)">
+                <a href="@category.Modules.First().Url" class="main-button @ActiveIfCategory(category.Category)"><i class="@category.Category.IconCssClass"></i> @category.Category.Title</a>
                 <div class="sub-nav">
                     <div class="results">
                         <ol>
-                            @foreach (var module in Model.ManageSiteModules)
-                            {
-                                <li class="result @ActiveIfModule(module)">
-                                    <a href="@module.Url" title="@module.Description" @ActiveIfModule(module)>@module.Title</a>
-                                </li>
-                            }
-                        </ol>
-                    </div>
-                </div>
-            </li>
-        }
-        @if (Model.ManageSiteModules.Any())
-        {
-            <li class="category settings @ActiveIfCategory(AdminModuleMenuCategory.Settings)">
-                <a href="@Model.ManageSiteModules.First().Url" class="main-button @ActiveIfCategory(AdminModuleMenuCategory.Settings)"><i class="fa fa-cog"></i> Settings</a>
-                <div class="sub-nav">
-                    <div class="results">
-                        <ol>
-                            @foreach (var module in Model.SettingsModules)
+                            @foreach (var module in category.Modules)
                             {
                                 <li class="result @ActiveIfModule(module)">
                                     <a href="@module.Url" title="@module.Description" @ActiveIfModule(module)>@module.Title</a>

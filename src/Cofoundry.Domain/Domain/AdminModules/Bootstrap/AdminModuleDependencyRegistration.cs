@@ -11,6 +11,7 @@ namespace Cofoundry.Domain.DependencyRegistration
     {
         public void Register(IContainerRegister container)
         {
+            container.RegisterAll<IAdminModuleMenuCategory>();
             container.RegisterAll<IAdminModuleRegistration>();
         }
     }

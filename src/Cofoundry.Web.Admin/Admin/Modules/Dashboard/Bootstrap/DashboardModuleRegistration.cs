@@ -19,12 +19,12 @@ namespace Cofoundry.Web.Admin
 
         public AdminModule GetModule()
         {
-            var module = new AdminModule()
+            var module = new AdminModule<ContentAdminModuleMenuCategory>()
             {
                 AdminModuleCode = ModuleCode,
                 Title = "Dashboard",
                 Description = "An overview of your site.",
-                MenuCategory = AdminModuleMenuCategory.ManageSite,
+                //MenuCategory = AdminModuleMenuCategory.ManageSite,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Primary,
                 SecondaryOrdering = Int32.MaxValue,
                 Url = _adminRouteLibrary.Dashboard.Dashboard(),

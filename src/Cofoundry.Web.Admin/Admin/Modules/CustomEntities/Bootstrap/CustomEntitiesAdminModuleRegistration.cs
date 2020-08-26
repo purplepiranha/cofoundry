@@ -25,11 +25,11 @@ namespace Cofoundry.Web.Admin
         {
             foreach (var definition in _customEntityDefinitions)
             {
-                var module = new AdminModule()
+                var module = new AdminModule<ContentAdminModuleMenuCategory>()
                 {
                     AdminModuleCode = definition.CustomEntityDefinitionCode,
                     Description = definition.Description,
-                    MenuCategory = AdminModuleMenuCategory.ManageSite,
+                    //MenuCategory = AdminModuleMenuCategory.ManageSite,
                     PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Tertiary,
                     Title = definition.NamePlural,
                     Url = _adminRouteLibrary.CustomEntities.List(definition),

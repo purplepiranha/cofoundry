@@ -7,11 +7,9 @@ namespace Cofoundry.Web.Admin
 {
     public class AdminMenuViewModel
     {
-        public ICollection<AdminModule> ManageSiteModules { get; set; }
+        public IEnumerable<AdminMenuCategoryViewModel> Categories { get; set; }
 
-        public ICollection<AdminModule> SettingsModules { get; set; }
-
-        public AdminModuleMenuCategory SelectedCategory { get; set; }
+        public IAdminModuleMenuCategory SelectedCategory { get; set; }
 
         public AdminModule SelectedModule { get; set; }
     }

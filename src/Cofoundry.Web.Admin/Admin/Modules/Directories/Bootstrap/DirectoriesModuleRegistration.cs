@@ -23,12 +23,12 @@ namespace Cofoundry.Web.Admin
         {
             if (_pagesSettings.Disabled) return null;
 
-            var module = new AdminModule()
+            var module = new AdminModule<ContentAdminModuleMenuCategory>()
             {
                 AdminModuleCode = "COFDIR",
                 Title = "Directories",
                 Description = "Manage the directories in your site.",
-                MenuCategory = AdminModuleMenuCategory.ManageSite,
+                //MenuCategory = AdminModuleMenuCategory.ManageSite,
                 PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Secondry,
                 Url = _adminRouteLibrary.Directories.List(),
                 RestrictedToPermission = new PageDirectoryAdminModulePermission()

@@ -27,9 +27,17 @@ namespace Cofoundry.Web.Admin
 
             foreach (var definition in _customEntityDefinitions)
             {
-                var combinedType = genericBase.MakeGenericType(new Type[] { definition.AdminModuleMenuCategoryType });
+                dynamic module;
 
-                dynamic module = Activator.CreateInstance(combinedType);
+                if (definition.AdminModuleMenuCategoryType == null)
+                {
+                    module = new HiddenAdminModule();
+                }
+                else
+                {
+                    var combinedType = genericBase.MakeGenericType(new Type[] { definition.AdminModuleMenuCategoryType });
+                    module = Activator.CreateInstance(combinedType);
+                }
 
                 module.AdminModuleCode = definition.CustomEntityDefinitionCode;
                 module.Description = definition.Description;

@@ -72,6 +72,10 @@ namespace Cofoundry.Domain
         /// </summary>
         bool AutoPublish { get; }
 
+        /// <summary>
+        /// Indicates where this will be displayed within the admin menu.
+        /// Set to null if it shouldn't be displayed.
+        /// </summary>
         public Type AdminModuleMenuCategoryType { get; }
     }
 

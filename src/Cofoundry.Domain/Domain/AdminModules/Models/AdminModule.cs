@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cofoundry.Domain
 {
-    public abstract class AdminModule 
+    public abstract class AdminModule
     {
         /// <remarks>
         /// Uniquely identifies the module
@@ -51,6 +51,22 @@ namespace Cofoundry.Domain
         }
     }
 
+    /// <summary>
+    /// Defines an AdminModule.
+    /// This should be used for admin modules that are hidden from the menu.
+    /// </summary>
+    public class HiddenAdminModule : AdminModule
+    {
+        public override Type MenuCategoryType => null;
+    }
+
+
+    /// <summary>
+    /// Defines an AdminModule.
+    /// This should be used for admin modules that are displayed in the menu.
+    /// Use HiddenAdminModule to hide from the menu.
+    /// </summary>
+    /// <typeparam name="T">The top level menu defined by implementing IAdminModuleMenuCategory</typeparam>
     public class AdminModule<T> : AdminModule where T : IAdminModuleMenuCategory
     {
         public override Type MenuCategoryType => typeof(T);

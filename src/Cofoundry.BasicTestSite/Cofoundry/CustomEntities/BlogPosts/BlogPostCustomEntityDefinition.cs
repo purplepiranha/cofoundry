@@ -68,5 +68,7 @@ namespace Cofoundry.BasicTestSite
         public CustomEntityQuerySortType DefaultSortType => CustomEntityQuerySortType.PublishDate;
 
         public SortDirection DefaultSortDirection => SortDirection.Default;
+
+        public Type AdminModuleMenuCategoryType => typeof(ContentAdminModuleMenuCategory);
     }
 }

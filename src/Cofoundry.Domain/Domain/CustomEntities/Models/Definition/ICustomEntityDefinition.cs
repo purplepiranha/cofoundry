@@ -71,6 +71,8 @@ namespace Cofoundry.Domain
         /// user has permissions to do so. Useful if this isn't the sort of entity that needs a draft state workflow
         /// </summary>
         bool AutoPublish { get; }
+
+        public Type AdminModuleMenuCategoryType { get; }
     }
 
     /// <summary>

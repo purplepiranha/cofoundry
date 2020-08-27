@@ -28,6 +28,8 @@ namespace Cofoundry.Domain.Tests
             public bool AutoGenerateUrlSlug => throw new NotImplementedException();
 
             public bool AutoPublish => throw new NotImplementedException();
+
+            public Type AdminModuleMenuCategoryType => throw new NotImplementedException();
         }
 
         private List<ICustomEntityDefinition> GetBaseCustomEntityDefinitions()

@@ -23,17 +23,20 @@ namespace Cofoundry.Web.Admin
 
         public IEnumerable<AdminModule> GetModules()
         {
+            var genericBase = typeof(AdminModule<>);
+
             foreach (var definition in _customEntityDefinitions)
             {
-                var module = new AdminModule<ContentAdminModuleMenuCategory>()
-                {
-                    AdminModuleCode = definition.CustomEntityDefinitionCode,
-                    Description = definition.Description,
-                    PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Tertiary,
-                    Title = definition.NamePlural,
-                    Url = _adminRouteLibrary.CustomEntities.List(definition),
-                    RestrictedToPermission = new CustomEntityAdminModulePermission(definition)
-                };
+                var combinedType = genericBase.MakeGenericType(new Type[] { definition.AdminModuleMenuCategoryType });
+
+                dynamic module = Activator.CreateInstance(combinedType);
+
+                module.AdminModuleCode = definition.CustomEntityDefinitionCode;
+                module.Description = definition.Description;
+                module.PrimaryOrdering = AdminModuleMenuPrimaryOrdering.Tertiary;
+                module.Title = definition.NamePlural;
+                module.Url = _adminRouteLibrary.CustomEntities.List(definition);
+                module.RestrictedToPermission = new CustomEntityAdminModulePermission(definition);
 
                 yield return module;
             }

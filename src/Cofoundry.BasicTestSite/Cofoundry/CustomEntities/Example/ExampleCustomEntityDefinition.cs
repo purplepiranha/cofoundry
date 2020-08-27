@@ -71,5 +71,7 @@ namespace Cofoundry.BasicTestSite
         public SortDirection DefaultSortDirection => SortDirection.Reversed;
 
         public CustomEntityOrdering Ordering => CustomEntityOrdering.Full;
+
+        public Type AdminModuleMenuCategoryType => typeof(ContentAdminModuleMenuCategory);
     }
 }

@@ -64,5 +64,7 @@ namespace Cofoundry.BasicTestSite
         public bool HasLocale => false;
 
         public CustomEntityOrdering Ordering => CustomEntityOrdering.Full;
+
+        public Type AdminModuleMenuCategoryType => typeof(ShopAdminModuleMenuCategory);
     }
 }

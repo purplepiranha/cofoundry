@@ -9,7 +9,6 @@ namespace Cofoundry.Domain
     /// </summary>
     public interface IAdminModuleMenuCategory
     {
-
         /// <summary>
         /// Title of the menu
         /// </summary>

@@ -19,36 +19,36 @@ variables:
   PackageVersion: '$(Major).$(Minor).$(Patch)-PurplePiranha-$(Build.BuildNumber)'
 
 steps:
-- task: NuGetToolInstaller@1
+#- task: NuGetToolInstaller@1
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
-
-#- task: VSBuild@1
+#- task: NuGetCommand@2
 #  inputs:
-#    solution: '$(solution)'
-#    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-#    platform: '$(buildPlatform)'
-#    configuration: '$(buildConfiguration)'
+#    restoreSolution: '$(solution)'
 
-#- task: VSTest@2
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+#- task: NuGetCommand@2
 #  inputs:
-#    platform: '$(buildPlatform)'
-#    configuration: '$(buildConfiguration)'
+#    command: pack
+#    packagesToPack: '**/*.csproj;!**/*Test*.csproj'
+#    versioningScheme: byEnvVar
+#    versionEnvVar: PackageVersion
 
-- task: NuGetCommand@2
-  inputs:
-    command: pack
-    packagesToPack: '**/*.csproj;!**/*Test*.csproj'
-    versioningScheme: byEnvVar
-    versionEnvVar: PackageVersion
-
-- task: NuGetAuthenticate@0
-  displayName: 'NuGet Authenticate'
-- task: NuGetCommand@2
-  displayName: 'NuGet push'
-  inputs:
-    command: push
-    publishVstsFeed: 'Cofoundry'
-    allowPackageConflicts: true
+#- task: NuGetAuthenticate@0
+#  displayName: 'NuGet Authenticate'
+#- task: NuGetCommand@2
+#  displayName: 'NuGet push'
+#  inputs:
+#    command: push
+#    publishVstsFeed: 'Cofoundry'
+#    allowPackageConflicts: true

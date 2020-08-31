@@ -16,7 +16,7 @@ variables:
   Major: '0'
   Minor: '7'
   Patch: '0'
-  PackageVersion: '$(Major).$(Minor).$(Patch)-PurplePiranha-$(BuildId)'
+  PackageVersion: '$(Major).$(Minor).$(Patch)-PurplePiranha-$(Build.BuildNumber)'
 
 steps:
 - task: NuGetToolInstaller@1

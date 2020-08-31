@@ -13,6 +13,7 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  packConfiguration: 'Release'
   Major: '0'
   Minor: '7'
   Patch: '0'
@@ -41,18 +42,19 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-#- task: NuGetCommand@2
-#  inputs:
-#    command: pack
-#    packagesToPack: '**/*.csproj;!**/*Test*.csproj'
-#    versioningScheme: byEnvVar
-#    versionEnvVar: PackageVersion
 
-#- task: NuGetAuthenticate@0
+- task: DotNetCoreCLI@2
+  inputs:
+    command: pack
+    packagesToPack: '**/*.csproj;!**/*Test*.csproj'
+    versioningScheme: byEnvVar
+    versionEnvVar: PackageVersion
+    configurationToPack: $(packConfiguration)
+
+# - task: NuGetAuthenticate@0
 #  displayName: 'NuGet Authenticate'
-#- task: NuGetCommand@2
-#  displayName: 'NuGet push'
-#  inputs:
-#    command: push
-#    publishVstsFeed: 'Cofoundry'
-#    allowPackageConflicts: true
+
+- task: DotNetCoreCLI@2
+  inputs:
+   command: push
+   feedPublish: 'Cofoundry'

@@ -40,7 +40,7 @@ steps:
   inputs:
     command: pack
     packagesToPack: '**/*.csproj;!**/*Test*.csproj'
-    versioningScheme: byPrereleaseNumber
+    versioningScheme: byBuildNumber
     majorVersion: '$(Major)'
     minorVersion: '$(Minor)'
     patchVersion: '$(Patch)'

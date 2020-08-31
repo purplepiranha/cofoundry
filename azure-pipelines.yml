@@ -16,6 +16,7 @@ variables:
   Major: '0'
   Minor: '7'
   Patch: '0'
+  PackageVersion: '$(Major).$(Minor).$(Patch)-PurplePiranha-$(BuildID)'
 
 steps:
 - task: NuGetToolInstaller@1
@@ -40,10 +41,11 @@ steps:
   inputs:
     command: pack
     packagesToPack: '**/*.csproj;!**/*Test*.csproj'
-    versioningScheme: byBuildNumber
-    majorVersion: '$(Major)'
-    minorVersion: '$(Minor)'
-    patchVersion: '$(Patch)'
+    versioningScheme: byEnvVar
+    versionEnvVar: PackageVersion
+#    majorVersion: '$(Major)'
+#    minorVersion: '$(Minor)'
+#    patchVersion: '$(Patch)'
 
 - task: NuGetAuthenticate@0
   displayName: 'NuGet Authenticate'

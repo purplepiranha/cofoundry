@@ -50,6 +50,10 @@ steps:
     versioningScheme: byEnvVar
     versionEnvVar: PackageVersion
     configurationToPack: $(packConfiguration)
+    majorVersion: $(Major)
+    minorVersion: $(Minor)
+    patchVersion: $(Patch)
+
 
 # - task: NuGetAuthenticate@0
 #  displayName: 'NuGet Authenticate'

@@ -17,7 +17,7 @@ variables:
   Major: '0'
   Minor: '7'
   Patch: '0'
-  PackageVersion: '$(Major).$(Minor).$(Patch)'
+  PackageVersion: '$(Major).$(Minor).$(Patch).1'
 
 steps:
 #- task: NuGetToolInstaller@1

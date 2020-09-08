@@ -16,7 +16,7 @@ variables:
   packConfiguration: 'Release'
   Major: '0'
   Minor: '7'
-  Patch: '1'
+  Patch: '0'
   PackageVersion: '$(Major).$(Minor).$(Patch)'
 
 steps:
